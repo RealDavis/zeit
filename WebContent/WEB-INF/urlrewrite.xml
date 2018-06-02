@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlrewrite>
+	<rule>
+		<from>/test/status/</from>
+		<to type="redirect">%{context-path}/rewrite-status</to>
+	</rule>
+	<!--  
+	<rule>
+		<from>/empresa/cadastro</from>
+		<to>/main?action=cadastro</to>
+	</rule>
+	<rule>
+		<condition type="method">post</condition>
+		<from>/empresa/cadastrar</from>
+		<to>/empresa</to>
+	</rule>
+	-->
+	<outbound-rule>
+		<from>/rewrite-status</from>
+		<to>/test/status/</to>
+	</outbound-rule>
+</urlrewrite>
