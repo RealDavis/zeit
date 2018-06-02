@@ -11,7 +11,7 @@
   			</button>
  			${session.getAttribute("msgErro")}
 			<%
-				ErrorsUtils.removeMsgErro(request);
+				ErrorsUtil.removeMsgErro(request);
 			%>
 		</div>
 	</div>
