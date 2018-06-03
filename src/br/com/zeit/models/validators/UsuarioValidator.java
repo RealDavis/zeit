@@ -41,7 +41,7 @@ public class UsuarioValidator implements IValidator {
 	
 	private void validarSenhas(String senhaA, String senhaB) {
 		if(senhaA == null || senhaB == null || senhaA.isEmpty() || senhaB.isEmpty()) {
-			msgErro.append("Preencha os campos de senha.<br>\n");
+			msgErro.append("Preencha todos os campos de senha.<br>\n");
 		} else if (!senhaA.equals(senhaB)) {
 			msgErro.append("Preencha os campos de senha com senhas iguais.<br>\n");
 		} else if(senhaA.length() < 8) {

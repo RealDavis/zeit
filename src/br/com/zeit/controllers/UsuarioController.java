@@ -31,6 +31,7 @@ public class UsuarioController extends HttpServlet {
 		String msgErro = validator.validar(usuario, senhaConfirmacao);
 		if(!msgErro.isEmpty()) {
 			ErrorsUtil.setMsgErro(request, msgErro);
+			ErrorsUtil.saveObjData(request, usuario);
 			response.sendRedirect("cadastro");
 		} 
 		

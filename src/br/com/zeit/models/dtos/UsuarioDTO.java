@@ -1,6 +1,8 @@
 package br.com.zeit.models.dtos;
 
-public class UsuarioDTO {
+import br.com.zeit.interfaces.IDTO;
+
+public class UsuarioDTO implements IDTO{
 
 	private int idUsuario;
 	private String nome;
