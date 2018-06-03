@@ -17,7 +17,7 @@ public class GenericDAO<T> implements IDAO<T>{
 	protected ResultSet rs = null;
 	
 	@Override
-	public boolean insert(T obj) {
+	public boolean insert(T obj) throws PersistenciaException{
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -1,3 +1,10 @@
 CREATE SCHEMA zeit CHARSET = UTF8 COLLATE = utf8_general_ci;
 
 USE zeit;
+
+CREATE TABLE usuarios (
+	id_usuario INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(128) NOT NULL,
+	email VARCHAR(128) NOT NULL,
+	senha VARCHAR (200) NOT NULL
+);

@@ -16,7 +16,7 @@
 	        	<%
 	        		}
 	        	%>
-	                <form method="POST" action="cadastrar">
+	                <form method="POST" action="cadastrar?action=cadastrar">
 						<!--nome de usuário-->
 	                    <div class="form-group">
 							<label for="nome">Nome de usuário</label>

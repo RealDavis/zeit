@@ -6,7 +6,7 @@ import br.com.zeit.exceptions.PersistenciaException;
 
 public interface IDAO<T> {
 
-	public boolean insert(T obj);
+	public boolean insert(T obj) throws PersistenciaException;
 	
 	public boolean edit(T obj);
 	
