@@ -1,4 +1,4 @@
-<%@page import="br.com.jestoque.utils.JsUtil"%>
+<%@page import="br.com.zeit.utils.JsUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 

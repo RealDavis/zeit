@@ -16,6 +16,15 @@
 		<to>/empresa</to>
 	</rule>
 	-->
+	<rule>
+		<from>/usuario/cadastro</from>
+		<to>/main?action=cadastrousuario</to>
+	</rule>
+	<rule>
+		<condition type="method">POST</condition>
+		<from>/usuario/cadastrar</from>
+		<to>/usuario</to>
+	</rule>
 	<outbound-rule>
 		<from>/rewrite-status</from>
 		<to>/test/status/</to>
