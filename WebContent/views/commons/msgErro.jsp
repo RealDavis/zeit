@@ -1,4 +1,4 @@
-<%@page import="br.com.zeit.utils.ErrorsUtil"%>
+<%@page import="br.com.zeit.utils.MsgUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -9,9 +9,9 @@
  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     			<span aria-hidden="true">&times;</span>
   			</button>
- 			${sessionScope.msgErro}
+ 			${sessionScope.errorMessage}
 			<%
-				ErrorsUtil.removeMsgErro(request);
+				MsgUtil.removeErrorMessage(request);
 			%>
 		</div>
 	</div>

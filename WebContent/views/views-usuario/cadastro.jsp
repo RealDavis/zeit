@@ -1,5 +1,6 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Remove"%>
-<%@page import="br.com.zeit.utils.ErrorsUtil"%>
+<%@page import="br.com.zeit.utils.MsgUtil"%>
+<%@page import="br.com.zeit.utils.FormUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -10,13 +11,13 @@
 	        <div class="col-12">
 	        	<main>
 	        	<%
-	        		if(ErrorsUtil.isErro(request)) {
+	        		if(MsgUtil.isErrorMessage(request)) {
 	        	%>
 	        		<jsp:include page="../commons/msgErro.jsp"/>
 	        	<%
 	        		}
 	        	%>
-	                <form method="POST" action="cadastrar?action=cadastrar">
+	                <form method="POST" action="cadastrar">
 						<!--nome de usuário-->
 	                    <div class="form-group">
 							<label for="nome">Nome de usuário</label>
@@ -83,7 +84,7 @@
     </div>
 
 	<%
-		ErrorsUtil.removeObjData(request);
+		FormUtil.removeObjData(request);
 	%>
 
 
