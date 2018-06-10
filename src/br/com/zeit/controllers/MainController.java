@@ -26,9 +26,17 @@ public class MainController extends HttpServlet {
 
 	private void redirect(HttpServletRequest request, HttpServletResponse response, String action)
 			throws IOException, ServletException {
+		UsuarioController usuarioCtr = null;
+		LoginController loginCtr = null;
+		
 		switch (action) {
 		case "cadastrousuario":
-			UsuarioController.cadastro(request, response);
+			usuarioCtr = new UsuarioController();
+			usuarioCtr.cadastro(request, response);
+			break;
+		case "login" :
+			loginCtr = new LoginController();
+			loginCtr.index(request, response);
 			break;
 		default:
 			break;

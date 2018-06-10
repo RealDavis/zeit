@@ -16,6 +16,7 @@
 		<to>/empresa</to>
 	</rule>
 	-->
+	<!-- usuario -->
 	<rule>
 		<from>/usuario/cadastro</from>
 		<to>/main?action=cadastrousuario</to>
@@ -24,6 +25,16 @@
 		<condition type="method">POST</condition>
 		<from>/usuario/cadastrar</from>
 		<to>/usuario</to>
+	</rule>
+	<!-- login -->
+	<rule>
+		<from>/login</from>
+		<to>/main?action=login</to>
+	</rule>
+	<rule>
+		<condition type="method">POST</condition>
+		<from>/logar</from>
+		<to>/login</to>
 	</rule>
 	<outbound-rule>
 		<from>/rewrite-status</from>

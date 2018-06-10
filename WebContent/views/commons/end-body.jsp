@@ -1,16 +1,19 @@
 <%@page import="br.com.zeit.utils.JsUtil"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 
 		<!--JavaScript at end of body for optimized loading-->
-		<script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="../assets/js/popper.js"></script>
-		<script type="text/javascript" src="../assets/bootstrap/dist/js/bootstrap.min.js"></script>
-		${jsPersonalizado}
+		<script type="text/javascript" src="<c:url value="/assets/js/jquery-3.2.1.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/assets/js/popper.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/assets/bootstrap/dist/js/bootstrap.min.js"/>"></script>
+		<c:if test="${jsPersonalizado != null}">
+			${jsPersonalizado}
+			<%
+				JsUtil.eraseJs(request);
+			%>
+		</c:if>
 		
-		<%
-			JsUtil.eraseJs(request);
-		%>
 	</body>
 </html>

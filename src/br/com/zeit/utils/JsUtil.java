@@ -3,10 +3,10 @@ package br.com.zeit.utils;
 import javax.servlet.http.HttpServletRequest;
 
 public class JsUtil {
-
+	
 	private String js = "";
-	private String tagInicio = "<script type=\"text/javascript\" src=\"../assets/js/";
-	private String tagFinal = ".js\"></script>";
+	private String tagInicio = "<script type=\"text/javascript\" src=\"<c:url value=\"/assets/js/";
+	private String tagFinal = ".js\"/>\"</script>";
 	
 	public void addJs(String newJs) {
 		js += (tagInicio + newJs + tagFinal + "\n");

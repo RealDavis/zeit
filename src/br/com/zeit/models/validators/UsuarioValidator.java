@@ -1,18 +1,17 @@
 package br.com.zeit.models.validators;
 
-import br.com.zeit.interfaces.IValidator;
 import br.com.zeit.models.dtos.UsuarioDTO;
 
-public class UsuarioValidator implements IValidator {
+public class UsuarioValidator{
 
 	private StringBuilder msgErro = new StringBuilder();
 	private String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 	        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
-	@Override
-	public String validar() {
-		// TODO Auto-generated method stub
-		return null;
+	public String validarLogin(UsuarioDTO usuario) {
+		validarEmail(usuario.getEmail());
+		validarSenha(usuario.getSenha());
+		return msgErro.toString().trim();
 	}
 	
 	public String validar(UsuarioDTO usuario, String senhaConfirmar) {
@@ -38,6 +37,13 @@ public class UsuarioValidator implements IValidator {
 		}
 	}
 	
+	private void validarSenha(String senha) {
+		if(senha == null || senha.isEmpty()) {
+			msgErro.append("Preencha o campo de senha.<br>\n");
+		}  else if(senha.length() < 8) {
+			msgErro.append("A senha deve ter no minimo 8 caracteres.<br>\n");
+		}
+	}
 	
 	private void validarSenhas(String senhaA, String senhaB) {
 		if(senhaA == null || senhaB == null || senhaA.isEmpty() || senhaB.isEmpty()) {

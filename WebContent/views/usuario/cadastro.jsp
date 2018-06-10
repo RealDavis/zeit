@@ -1,22 +1,20 @@
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Remove"%>
 <%@page import="br.com.zeit.utils.MsgUtil"%>
 <%@page import="br.com.zeit.utils.FormUtil"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <jsp:include page="../commons/head.jsp"/>
+    <c:import url="../commons/head.jsp"/>
     
     <div class="container">
         <div class="row">
 	        <div class="col-12">
 	        	<main>
-	        	<%
-	        		if(MsgUtil.isErrorMessage(request)) {
-	        	%>
-	        		<jsp:include page="../commons/msgErro.jsp"/>
-	        	<%
-	        		}
-	        	%>
+	        	
+		        	<c:if test="${sessionScope.errorMessage != null}">
+		        		<c:import url="../commons/msgErro.jsp"/>
+		        	</c:if>
+		        	
 	                <form method="POST" action="cadastrar">
 						<!--nome de usuário-->
 	                    <div class="form-group">
@@ -32,7 +30,7 @@
 						</div>
 						<!--email-->
 	                    <div class="form-group">
-							<label for="email">Email address</label>
+							<label for="email">Email</label>
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text">
@@ -88,5 +86,5 @@
 	%>
 
 
+    <c:import url="../commons/end-body.jsp"/>
     
-    <jsp:include page="../commons/end-body.jsp"/>

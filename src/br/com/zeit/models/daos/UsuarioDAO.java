@@ -1,5 +1,6 @@
 package br.com.zeit.models.daos;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import br.com.jestoque.security.Encript;
@@ -59,18 +60,5 @@ public class UsuarioDAO extends GenericDAO<UsuarioDTO> {
 		
 		return usuario;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

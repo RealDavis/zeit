@@ -30,10 +30,10 @@ public class UsuarioController extends HttpServlet {
 		cadastrar(request, response, usuario, senhaConfirmacao);
 	}
 
-	protected static void cadastro(HttpServletRequest request, HttpServletResponse response)
+	protected void cadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("titulo", "Cadastro de usuário");
-		request.getRequestDispatcher("views/views-usuario/cadastro.jsp").forward(request, response);
+		request.getRequestDispatcher("views/usuario/cadastro.jsp").forward(request, response);
 	}
 
 	private void cadastrar(HttpServletRequest request, HttpServletResponse response, UsuarioDTO usuario,
