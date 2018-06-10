@@ -28,6 +28,7 @@ public class MainController extends HttpServlet {
 			throws IOException, ServletException {
 		UsuarioController usuarioCtr = null;
 		LoginController loginCtr = null;
+		TarefaController tarefaCtr = null;
 		
 		switch (action) {
 		case "cadastrousuario":
@@ -37,6 +38,10 @@ public class MainController extends HttpServlet {
 		case "login" :
 			loginCtr = new LoginController();
 			loginCtr.index(request, response);
+			break;
+		case "index" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.index(request, response);
 			break;
 		default:
 			break;

@@ -36,6 +36,11 @@
 		<from>/logar</from>
 		<to>/login</to>
 	</rule>
+	<!-- tarefas -->
+	<rule>
+		<from>/index</from>
+		<to>/main?action=index</to>
+	</rule>
 	<outbound-rule>
 		<from>/rewrite-status</from>
 		<to>/test/status/</to>

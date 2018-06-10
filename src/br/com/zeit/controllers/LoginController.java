@@ -17,6 +17,7 @@ import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
 import br.com.zeit.utils.FormUtil;
 import br.com.zeit.utils.MsgUtil;
+import br.com.zeit.utils.SessionUtil;
 
 
 @WebServlet("/login")
@@ -51,7 +52,8 @@ public class LoginController extends HttpServlet {
 				usuario.setSenha(encriptor.encriptPassword(usuario.getSenha()));
 				UsuarioDTO usuarioValidado = dao.validarUsuario(usuario);
 				if(usuarioValidado != null) {
-					response.getWriter().println("Usuario logado");
+					SessionUtil.startSession(request, usuarioValidado);
+					response.sendRedirect("index");;
 				} else {
 					MsgUtil.setErrorMessage(request, "Usuario não encontrado. Verifique os dados informados.");
 					response.sendRedirect("login");
