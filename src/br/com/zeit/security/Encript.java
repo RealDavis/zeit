@@ -1,4 +1,4 @@
-package br.com.jestoque.security;
+package br.com.zeit.security;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

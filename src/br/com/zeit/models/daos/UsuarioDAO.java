@@ -3,11 +3,11 @@ package br.com.zeit.models.daos;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import br.com.jestoque.security.Encript;
 import br.com.zeit.db.ConnectionFactory;
 import br.com.zeit.exceptions.EncriptionException;
 import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.dtos.UsuarioDTO;
+import br.com.zeit.security.Encript;
 
 public class UsuarioDAO extends GenericDAO<UsuarioDTO> {
 

@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.jestoque.security.Encript;
 import br.com.zeit.exceptions.EncriptionException;
 import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.daos.LoginDAO;
 import br.com.zeit.models.daos.UsuarioDAO;
 import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
+import br.com.zeit.security.Encript;
 import br.com.zeit.utils.FormUtil;
 import br.com.zeit.utils.MsgUtil;
 import br.com.zeit.utils.SessionUtil;
