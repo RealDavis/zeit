@@ -15,7 +15,7 @@
 		        		<c:import url="../commons/msgErro.jsp"/>
 		        	</c:if>
 		        	
-	                <form method="POST" action="cadastrar">
+	                <form method="POST" action="<c:url value="/usuario/cadastrar"/>">
 						<!--nome de usuário-->
 	                    <div class="form-group">
 							<label for="nome">Nome de usuário</label>

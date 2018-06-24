@@ -9,7 +9,7 @@
 	<div class="row">
 		<div class="col-12">
 			<main>
-				
+			
 				<c:if test="${sessionScope.errorMessage != null}">
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
@@ -17,7 +17,7 @@
 	        		<c:import url="../commons/msgSuccess.jsp"/>
 	        	</c:if>
 
-				<form method="POST" action="cadastrar">
+				<form method="POST" action="<c:url value="/tarefas/cadastrar"/>">
 					<div class="form-group">
 						<label for="tarefa">Tarefa</label>
 						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}">

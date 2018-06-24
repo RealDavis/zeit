@@ -12,8 +12,8 @@
 				<c:if test="${sessionScope.errorMessage != null}">
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
-
-				<form method="POST" action="logar">
+				
+				<form method="POST" action="<c:url value="/logar"/>">
 					<div class="form-group">
 						<label for="email">Email</label>
 						<div class="input-group">

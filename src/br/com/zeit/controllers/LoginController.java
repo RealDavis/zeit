@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
 		if (!msgErro.isEmpty()) {
 			MsgUtil.setErrorMessage(request, msgErro);
 			FormUtil.saveObjData(request, usuario);
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath() + "/login");
 		} else {
 			//usuario validado
 			LoginDAO dao = new LoginDAO();
@@ -53,10 +53,10 @@ public class LoginController extends HttpServlet {
 				UsuarioDTO usuarioValidado = dao.validarUsuario(usuario);
 				if(usuarioValidado != null) {
 					SessionUtil.startSession(request, usuarioValidado);
-					response.sendRedirect("index");;
+					response.sendRedirect(request.getContextPath() + "/index");;
 				} else {
 					MsgUtil.setErrorMessage(request, "Usuario não encontrado. Verifique os dados informados.");
-					response.sendRedirect("login");
+					response.sendRedirect(request.getContextPath() + "/login");
 				}
 			} catch (PersistenciaException e) {
 				response.getWriter().println(e.getMessage() + " " + e.getCause());

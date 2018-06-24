@@ -5,17 +5,6 @@
 		<from>/test/status/</from>
 		<to type="redirect">%{context-path}/rewrite-status</to>
 	</rule>
-	<!--  
-	<rule>
-		<from>/empresa/cadastro</from>
-		<to>/main?action=cadastro</to>
-	</rule>
-	<rule>
-		<condition type="method">post</condition>
-		<from>/empresa/cadastrar</from>
-		<to>/empresa</to>
-	</rule>
-	-->
 	<!-- usuario -->
 	<rule>
 		<from>/usuario/cadastro</from>

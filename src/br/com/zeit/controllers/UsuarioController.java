@@ -1,6 +1,7 @@
 package br.com.zeit.controllers;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,6 @@ import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.daos.UsuarioDAO;
 import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
-import br.com.zeit.utils.ErrorsUtil;
 import br.com.zeit.utils.FormUtil;
 import br.com.zeit.utils.MsgUtil;
 
@@ -44,15 +44,15 @@ public class UsuarioController extends HttpServlet {
 		if (!msgErro.isEmpty()) {
 			MsgUtil.setErrorMessage(request, msgErro);
 			FormUtil.saveObjData(request, usuario);
-			response.sendRedirect("cadastro");
+			response.sendRedirect(request.getContextPath() + "/usuario/cadastro");
 		} else {
 			//usuário válidado
 			UsuarioDAO dao = new UsuarioDAO();
 			try {
 				if (dao.getByEmail(usuario.getEmail()) != null) {
-					ErrorsUtil.setMsgErro(request, "Usuário inválido! Email ja cadastrado no sistema.");
-					ErrorsUtil.saveObjData(request, usuario);
-					response.sendRedirect("cadastro");
+					MsgUtil.setErrorMessage(request, "Usuário inválido! Escolha outro endereço de email.");
+					FormUtil.saveObjData(request, usuario);
+					response.sendRedirect(request.getContextPath() + "/usuario/cadastro");
 				} else {
 					dao.insertUsuario(usuario);
 					response.getWriter().println("Usuario cadastrado");
