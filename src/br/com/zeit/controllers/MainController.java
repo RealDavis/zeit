@@ -43,8 +43,11 @@ public class MainController extends HttpServlet {
 			tarefaCtr = new TarefaController();
 			tarefaCtr.index(request, response);
 			break;
-		default:
+		case "cadastro" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.cadastro(request, response);
 			break;
+		
 		}
 	}
 

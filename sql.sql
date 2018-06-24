@@ -8,3 +8,14 @@ CREATE TABLE usuarios (
 	email VARCHAR(128) NOT NULL,
 	senha VARCHAR (200) NOT NULL
 );
+
+CREATE TABLE tarefas (
+	id_tarefa INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    tarefa VARCHAR(100) NOT NULL,
+    data_tarefa DATE,
+    hora TIMESTAMP,
+    observacoes VARCHAR(250),
+    is_concluido BOOLEAN NOT NULL,
+    id_usuario INT NOT NULL,
+    CONSTRAINT fk_tarefas_usuario FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
+);

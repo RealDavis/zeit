@@ -36,7 +36,7 @@ public class MsgUtil {
 	}
 	
 	//mensagens de sucesso
-	public static boolean isSucessMessage(HttpServletRequest request) {
+	public static boolean isSuccessMessage(HttpServletRequest request) {
 		HttpSession sessao = request.getSession();
 		return sessao.getAttribute("successMessage") != null;
 	}
@@ -50,7 +50,7 @@ public class MsgUtil {
 
 	public static String getSuccessMessage(HttpServletRequest request) {
 		HttpSession sessao = request.getSession();
-		if(isSucessMessage(request)) {
+		if(isSuccessMessage(request)) {
 			String mensagem = (String)sessao.getAttribute("successMessage");
 			removeSuccessMessage(request);
 			return mensagem;
@@ -59,7 +59,7 @@ public class MsgUtil {
 	}
 	
 	public static void removeSuccessMessage(HttpServletRequest request) {
-		if (isSucessMessage(request)) {
+		if (isSuccessMessage(request)) {
 			HttpSession sessao = request.getSession();
 			sessao.removeAttribute("successMessage");
 		}

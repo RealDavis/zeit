@@ -4,9 +4,16 @@ import br.com.zeit.models.dtos.UsuarioDTO;
 
 public class UsuarioValidator{
 
-	private StringBuilder msgErro = new StringBuilder();
-	private String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-	        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	private StringBuilder msgErro = null;
+	private String emailRegex = null;
+	
+	
+	public UsuarioValidator() {
+		msgErro = new StringBuilder();
+		emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	}
+	
 	
 	public String validarLogin(UsuarioDTO usuario) {
 		validarEmail(usuario.getEmail());

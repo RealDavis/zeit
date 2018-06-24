@@ -36,11 +36,21 @@
 		<from>/logar</from>
 		<to>/login</to>
 	</rule>
+	<rule>
+		<from>/tarefas/cadastro</from>
+		<to>/main?action=cadastro</to>
+	</rule>
 	<!-- tarefas -->
 	<rule>
 		<from>/index</from>
 		<to>/main?action=index</to>
 	</rule>
+	<rule>
+		<condition type="method">POST</condition>
+		<from>/tarefas/cadastrar</from>
+		<to>/tarefa</to>
+	</rule>
+	
 	<outbound-rule>
 		<from>/rewrite-status</from>
 		<to>/test/status/</to>
