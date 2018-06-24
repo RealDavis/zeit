@@ -51,8 +51,6 @@
 	</div>
 </div>
 
-	<%
-		FormUtil.removeObjData(request);
-	%>
+	<c:remove var = "entidade"/>
 
 <c:import url="../commons/end-body.jsp" />

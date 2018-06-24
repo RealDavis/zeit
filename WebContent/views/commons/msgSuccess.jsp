@@ -1,3 +1,4 @@
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="br.com.zeit.utils.MsgUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -9,10 +10,12 @@
  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     			<span aria-hidden="true">&times;</span>
   			</button>
- 			${sessionScope.successMessage}
-			<%
-				MsgUtil.removeSuccessMessage(request);
-			%>
+ 			
+ 			<c:if test = "${sessionScope.successMessage != null}">
+        		 <c:out value = "${sessionScope.successMessage}"/>
+        		 <c:remove var = "successMessage"/>
+      		</c:if>
+
 		</div>
 	</div>
 </div>

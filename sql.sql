@@ -13,7 +13,7 @@ CREATE TABLE tarefas (
 	id_tarefa INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     tarefa VARCHAR(100) NOT NULL,
     data_tarefa DATE,
-    hora TIMESTAMP,
+    hora TIME,
     observacoes VARCHAR(250),
     is_concluido BOOLEAN NOT NULL,
     id_usuario INT NOT NULL,

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="br.com.zeit.utils.JsUtil"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,9 +11,7 @@
 		<script type="text/javascript" src="<c:url value="/assets/bootstrap/dist/js/bootstrap.min.js"/>"></script>
 		<c:if test="${jsPersonalizado != null}">
 			${jsPersonalizado}
-			<%
-				JsUtil.eraseJs(request);
-			%>
+			<c:remove var = "jsPersonalizado"/>
 		</c:if>
 		
 	</body>

@@ -21,8 +21,9 @@ import br.com.zeit.utils.SessionUtil;
 public class TarefaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void index(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.getWriter().println("Página inicial tarefas");
+	protected void index(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		request.setAttribute("titulo", "Inicio");
+		request.getRequestDispatcher("views/tarefa/index.jsp").forward(request, response);
 	}
 	
 	@Override

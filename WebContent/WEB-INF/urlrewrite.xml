@@ -31,6 +31,10 @@
 	</rule>
 	<!-- tarefas -->
 	<rule>
+		<from>^/$</from>
+		<to type="forward">/index</to>
+	</rule>
+	<rule>
 		<from>/index</from>
 		<to>/main?action=index</to>
 	</rule>

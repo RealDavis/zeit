@@ -11,7 +11,7 @@
 		<link type="text/css" rel="stylesheet" href="<c:url value="/assets/bootstrap/dist/css/bootstrap.min.css"/>">
 		<link rel="icon" href="<c:url value="/assets/img/favicon.png"/>">
 		
-		<title>${titulo}</title>
+		<title><c:out value="${titulo}"/></title>
 	</head>
 	
 	<body>
