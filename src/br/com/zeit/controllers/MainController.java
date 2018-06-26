@@ -47,6 +47,18 @@ public class MainController extends HttpServlet {
 			tarefaCtr = new TarefaController();
 			tarefaCtr.cadastro(request, response);
 			break;
+		case "concluir" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.concluir(request, response, Integer.parseInt(request.getParameter("id")));
+			break;
+		case "excluir" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.excluir(request, response, Integer.parseInt(request.getParameter("id")));
+			break;
+		case "edicao" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.edicao(request, response, Integer.parseInt(request.getParameter("id")));
+			break;
 		
 		}
 	}

@@ -10,7 +10,8 @@
 		user="root" password="root" scope="request"/>
 		
 	<sql:query var="resultadoTarefas" dataSource="${ds}">
-		SELECT * FROM tarefas WHERE id_usuario = ${sessionScope.idUsuario} AND (data_tarefa = CURRENT_DATE() OR data_tarefa IS NULL);
+		SELECT * FROM tarefas WHERE id_usuario = ${sessionScope.idUsuario} 
+		AND (data_tarefa = CURRENT_DATE() OR data_tarefa IS NULL) AND is_concluido = FALSE;
 	</sql:query>
 	
 	<c:choose>
@@ -44,7 +45,15 @@
 				    	</c:choose>
 				    </td>
 				    <td>
-				    
+				    	<a class="btn btn-success btn-sm" href="<c:url value="/tarefas/concluir/${listaTarefas.id_tarefa}"/>">
+				    		<i class="fas fa-check"></i>
+				    	</a>
+				    	<a class="btn btn-info btn-sm" href="<c:url value="/tarefas/edicao/${listaTarefas.id_tarefa}"/>">
+				    		<i class="fas fa-pencil-alt"></i>
+				    	</a>
+				    	<a class="btn btn-danger btn-sm" href="<c:url value="/tarefas/excluir/${listaTarefas.id_tarefa}"/>">
+				    		<i class="fas fa-times"></i>
+				    	</a>
 				    </td>
 			    </tr>
 			</c:forEach>
@@ -55,5 +64,3 @@
 			<c:import url="noData.jsp"/>
 		</c:otherwise>
 	</c:choose>
-	
-	

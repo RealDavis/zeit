@@ -43,7 +43,18 @@
 		<from>/tarefas/cadastrar</from>
 		<to>/tarefa</to>
 	</rule>
-	
+	<rule>
+        <from>/tarefas/concluir/([0-9]+)$</from>
+        <to>/main?action=concluir&amp;id=$1</to>
+    </rule>
+    <rule>
+        <from>/tarefas/excluir/([0-9]+)$</from>
+        <to>/main?action=excluir&amp;id=$1</to>
+    </rule>
+	<rule>
+        <from>/tarefas/edicao/([0-9]+)$</from>
+        <to>/main?action=edicao&amp;id=$1</to>
+    </rule>
 	<outbound-rule>
 		<from>/rewrite-status</from>
 		<to>/test/status/</to>

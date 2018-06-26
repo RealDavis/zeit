@@ -8,6 +8,7 @@ import java.util.List;
 
 import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.interfaces.IDAO;
+import br.com.zeit.models.dtos.TarefaDTO;
 
 public class GenericDAO<T> implements IDAO<T>{
 
@@ -35,9 +36,9 @@ public class GenericDAO<T> implements IDAO<T>{
 	}
 
 	@Override
-	public boolean getByid(int id) {
+	public T getById(int id)  throws PersistenciaException {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 	
 	protected void closeResources() throws SQLException {

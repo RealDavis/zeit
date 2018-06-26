@@ -12,6 +12,6 @@ public interface IDAO<T> {
 	
 	public List<T> getAll() throws PersistenciaException;
 	
-	public boolean getByid(int id);
+	public T getById(int id) throws PersistenciaException;
 	
 }

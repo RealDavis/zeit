@@ -15,7 +15,7 @@
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
 	        	
-				<form method="POST" action="<c:url value="/tarefas/cadastrar"/>">
+				<form method="POST" action="<c:url value="/tarefas/edicao"/>">
 					<div class="form-group">
 						<label for="tarefa">Tarefa</label>
 						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}">

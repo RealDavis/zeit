@@ -57,12 +57,52 @@ public class TarefaController extends HttpServlet {
 				if(dao.insert(tarefa)) {
 					String msgSucess = "Tarefa salva com sucesso!";
 					MsgUtil.setSuccessMessage(request, msgSucess);
-					response.sendRedirect("cadastro");
+					response.sendRedirect(request.getContextPath() + "/");
 				}
 			} catch(PersistenciaException e) {
 				response.getWriter().println(e.getMessage());
 			}
 		}
+	}
+	
+	protected void concluir(HttpServletRequest request, HttpServletResponse response,int idTarefa) throws IOException {
+		TarefaDAO dao = new TarefaDAO();
+		try {
+			if(dao.concluir(idTarefa)) {
+				String msgSucess = "Tarefa concluída!";
+				MsgUtil.setSuccessMessage(request, msgSucess);
+				response.sendRedirect(request.getContextPath() + "/");
+			}
+		} catch (PersistenciaException e) {
+			response.getWriter().println(e.getMessage());
+		}
+	}
+
+	public void excluir(HttpServletRequest request, HttpServletResponse response, int idTarefa) throws IOException {
+		TarefaDAO dao = new TarefaDAO();
+		try {
+			if(dao.excluir(idTarefa)) {
+				String msgSucess = "Exclusão realizada com sucesso!";
+				MsgUtil.setSuccessMessage(request, msgSucess);
+				response.sendRedirect(request.getContextPath() + "/");
+			}
+		} catch (PersistenciaException e) {
+			response.getWriter().println(e.getMessage());
+		}
+	}
+
+	public void edicao(HttpServletRequest request, HttpServletResponse response, int idTarefa) throws IOException, ServletException {
+		TarefaDAO dao = new TarefaDAO();
+
+		response.getWriter().write("teste");/*
+		try {
+			TarefaDTO tarefa = dao.getById(idTarefa);
+			FormUtil.saveObjData(request, tarefa);
+			request.setAttribute("titulo", "Editar tarefa");
+			request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
+		} catch (PersistenciaException e) {
+			response.getWriter().println(e.getMessage());
+		}*/
 	}
 
 }
