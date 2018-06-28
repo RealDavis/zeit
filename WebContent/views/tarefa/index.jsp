@@ -9,46 +9,37 @@
 	<div class="row">
 		<div class="col-12">
 			<main>
-				<ul class="nav nav-tabs nav-fill"  role="tablist">
+				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab"  role="tab" aria-controls="tarefasPassadas" href="#tarefasPassadas" aria-selected="true">
-							Tarefas passadas / concluidas
-						</a>
+						<a class="nav-link" data-toggle="tab" href="#tarefasPassadas">Tarefas passadas / concluídas</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" role="tab"  aria-controls="tarefasHoje" href="#tarefasHoje" aria-selected="false">
-							Tarefas para hoje
-						</a>
+						<a class="nav-link" data-toggle="tab" href="#tarefasHoje">Tarefas de hoje / em aberto</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" role="tab" aria-controls="tarefasFuturas" href="#tarefasFuturas" aria-selected="false">
-							Tarefas futuras
-						</a>
+						<a class="nav-link" data-toggle="tab" href="#tarefasFuturas">Tarefas futuras</a>
 					</li>
 				</ul>
-			</main>
+			
+			<c:if test="${sessionScope.successMessage != null}">
+				<c:import url="../commons/msgSuccess.jsp"/>
+			</c:if>
+			
+			  <!-- Tab panes -->
+				<div class="tab-content">
+					<div id="tarefasPassadas" class="container tab-pane active">
+						<c:import url="tableTarefasPassadas.jsp"/>
+					</div>
+					<div id="tarefasHoje" class="container tab-pane fade">
+						<c:import url="tableTarefasHoje.jsp"/>
+					</div>
+					<div id="tarefasFuturas" class="container tab-pane fade"><br>
+						<c:import url="tableTarefasFuturas.jsp"/>
+					</div>
+				</div>
+			<main>
 		</div>
 	</div>
-</div>
-
-	<c:if test="${sessionScope.successMessage != null}">
-   		<c:import url="../commons/msgSuccess.jsp"/>
-   	</c:if>
-
-<div class="tab-content">
-	<div class="tab-pane container fade show" id="tarefasPassadas" role="tabpanel" aria-labelledby="tarefasPassadas-tab">
-		<h1>Teste</h1>
-		<!-- <c:import url="tableTarefasPassadas.jsp"/> -->
-	</div>
-	<div class="tab-pane container fade show" id="tarefasHoje" role="tabpanel"  aria-labelledby="tarefasHoje-tab">
-		b
-		<!--<c:import url="tableTarefasHoje.jsp"/>-->
-		<c:import url="tableTarefasHoje.jsp"/>
-	</div>
-	<div class="tab-pane container fade show" id="tarefasFuturas" role="tabpanel"  aria-labelledby="tarefasFuturas-tab">
-		c
-		<!--<c:import url="tableTarefasFuturas.jsp"/>-->
-	</div>
-</div>
-
+</div>	
+ 
 <c:import url="../commons/end-body.jsp"/>

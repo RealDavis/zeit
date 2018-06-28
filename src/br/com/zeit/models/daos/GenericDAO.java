@@ -41,6 +41,12 @@ public class GenericDAO<T> implements IDAO<T>{
 		return null;
 	}
 	
+	@Override
+	public boolean update(T obj) throws PersistenciaException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	protected void closeResources() throws SQLException {
 		if(conn != null) {
 			conn.close();

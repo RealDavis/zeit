@@ -59,6 +59,10 @@ public class MainController extends HttpServlet {
 			tarefaCtr = new TarefaController();
 			tarefaCtr.edicao(request, response, Integer.parseInt(request.getParameter("id")));
 			break;
+		case "editar" :
+			tarefaCtr = new TarefaController();
+			tarefaCtr.editar(request, response, Integer.parseInt(request.getParameter("id")));
+			break;
 		
 		}
 	}

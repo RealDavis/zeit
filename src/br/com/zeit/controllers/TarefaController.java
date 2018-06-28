@@ -1,6 +1,8 @@
 package br.com.zeit.controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +31,6 @@ public class TarefaController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TarefaDTO tarefa = new TarefaDTO();
-		int teste = 0;
 		tarefa.setTarefa(request.getParameter("tarefa").trim());
 		tarefa.setData(DateHourUtil.strToDBFormat(request.getParameter("data")));
 		tarefa.setHora(DateHourUtil.strToHour(request.getParameter("hora")));
@@ -72,6 +73,8 @@ public class TarefaController extends HttpServlet {
 				String msgSucess = "Tarefa concluída!";
 				MsgUtil.setSuccessMessage(request, msgSucess);
 				response.sendRedirect(request.getContextPath() + "/");
+			} else {
+				response.getWriter().println("Erro");
 			}
 		} catch (PersistenciaException e) {
 			response.getWriter().println(e.getMessage());
@@ -93,16 +96,48 @@ public class TarefaController extends HttpServlet {
 
 	public void edicao(HttpServletRequest request, HttpServletResponse response, int idTarefa) throws IOException, ServletException {
 		TarefaDAO dao = new TarefaDAO();
-
-		response.getWriter().write("teste");/*
 		try {
 			TarefaDTO tarefa = dao.getById(idTarefa);
-			FormUtil.saveObjData(request, tarefa);
-			request.setAttribute("titulo", "Editar tarefa");
-			request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
+			if(tarefa != null) {
+				FormUtil.saveObjData(request, tarefa);
+				request.setAttribute("titulo", "Editar tarefa");
+				request.setAttribute("idTarefa", idTarefa);
+				response.getWriter().println(tarefa);
+				request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
+			} else {
+				response.getWriter().println(tarefa);
+			}
 		} catch (PersistenciaException e) {
 			response.getWriter().println(e.getMessage());
-		}*/
+		}
+	}
+
+	public void editar(HttpServletRequest request, HttpServletResponse response, int idTarefa) throws IOException {
+		TarefaDTO tarefa = new TarefaDTO();
+		tarefa.setIdTarefa(idTarefa);
+		tarefa.setTarefa(request.getParameter("tarefa").trim());
+		tarefa.setData(!request.getParameter("data").isEmpty() ? LocalDate.parse(request.getParameter("data")) : null);
+		tarefa.setHora(!request.getParameter("hora").isEmpty() ? LocalTime.parse(request.getParameter("hora")) : null);
+		tarefa.setObservacoes(request.getParameter("observacoes"));
+		
+		TarefaValidator validator = new TarefaValidator();
+		String msgErro = validator.validar(tarefa);
+		if(!msgErro.isEmpty()) {
+			MsgUtil.setErrorMessage(request, msgErro);
+			FormUtil.saveObjData(request, tarefa);
+			response.sendRedirect(request.getContextPath() + "/tarefas/edicao/" + idTarefa);
+		} else {
+			TarefaDAO dao = new TarefaDAO();
+			try {
+				if(dao.update(tarefa)) {
+					String msgSucess = "Edição realizada com sucesso!";
+					MsgUtil.setSuccessMessage(request, msgSucess);
+					response.sendRedirect(request.getContextPath() + "/");
+				}
+			} catch(PersistenciaException e) {
+				response.getWriter().println(e.getMessage());
+			}
+		}
 	}
 
 }

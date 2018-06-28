@@ -30,13 +30,13 @@
 					</div>
 					<div class="form-group">
     					<label for="observacoes">Observações</label>
-    					<textarea class="form-control" id="observacoes" name="observacoes" value="${sessionScope.entidade.getObservacoes()}" rows="3"></textarea>
+    					<textarea class="form-control" id="observacoes" name="observacoes" rows="3">${sessionScope.entidade.getObservacoes()}</textarea>
   					</div>
 				
 					<div class="row">
 						<button type="submit" class="btn btn-primary">
 							Cadastrar
-							<i class="fas fa-sign-in-alt"></i>
+							<i class="fas fa-check"></i>
 						</button>
 						<button type="reset" class="btn btn-danger">
 	                        Limpar

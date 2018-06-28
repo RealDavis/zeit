@@ -22,7 +22,6 @@
 						<th scope="col">Tarefa</th>
 						<th scope="col">Data</th>
 						<th scope="col">Hora</th>
-						<th scope="col">Observações</th>
 						<th scope="col">Status</th>
 						<th scope="col">Ações<th>
 					</tr>
@@ -33,7 +32,6 @@
 				    <td><c:out value="${listaTarefas.tarefa}"/></td>
 				    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${listaTarefas.data_tarefa}"/></td>
 				    <td><fmt:formatDate pattern="HH:mm" value="${listaTarefas.hora}"/></td>
-				    <td><c:out value="${listaTarefas.observacoes}"/></td>
 				    <td>
 				    	<c:choose>
 				    		<c:when test="${listaTarefas.is_concluido == true}">
@@ -55,6 +53,14 @@
 				    		<i class="fas fa-times"></i>
 				    	</a>
 				    </td>
+				    <c:if test="${!listaTarefas.observacoes.isEmpty()}">
+					    <tr>
+					    	<td colspan="5">
+					    		<span>Observações: </span>
+					    		<c:out value="${listaTarefas.observacoes}"/>
+					    	</td>
+					    <tr>
+				    </c:if>
 			    </tr>
 			</c:forEach>
 				</tbody>

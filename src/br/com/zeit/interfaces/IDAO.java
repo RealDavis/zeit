@@ -14,4 +14,6 @@ public interface IDAO<T> {
 	
 	public T getById(int id) throws PersistenciaException;
 	
+	public boolean update(T obj) throws PersistenciaException;
+	
 }

@@ -15,7 +15,7 @@
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
 	        	
-				<form method="POST" action="<c:url value="/tarefas/edicao"/>">
+				<form method="GET" action="<c:url value="/tarefas/editar/${idTarefa}"/>">
 					<div class="form-group">
 						<label for="tarefa">Tarefa</label>
 						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}">
@@ -30,13 +30,13 @@
 					</div>
 					<div class="form-group">
     					<label for="observacoes">Observações</label>
-    					<textarea class="form-control" id="observacoes" name="observacoes" value="${sessionScope.entidade.getObservacoes()}" rows="3"></textarea>
+    					<textarea class="form-control" id="observacoes" name="observacoes" rows="3">${sessionScope.entidade.getObservacoes()}</textarea>
   					</div>
 				
 					<div class="row">
 						<button type="submit" class="btn btn-primary">
-							Cadastrar
-							<i class="fas fa-sign-in-alt"></i>
+							Editar
+							<i class="fas fa-edit"></i>
 						</button>
 						<button type="reset" class="btn btn-danger">
 	                        Limpar
