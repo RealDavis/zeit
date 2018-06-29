@@ -32,8 +32,8 @@ public class TarefaController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TarefaDTO tarefa = new TarefaDTO();
 		tarefa.setTarefa(request.getParameter("tarefa").trim());
-		tarefa.setData(DateHourUtil.strToDBFormat(request.getParameter("data")));
-		tarefa.setHora(DateHourUtil.strToHour(request.getParameter("hora")));
+		tarefa.setData(!request.getParameter("data").isEmpty() ? LocalDate.parse(request.getParameter("data")) : null);
+		tarefa.setHora(!request.getParameter("hora").isEmpty() ? LocalTime.parse(request.getParameter("hora")) : null);
 		tarefa.setObservacoes(request.getParameter("observacoes"));
 		tarefa.setConcluido(false);
 		tarefa.setIdUsuario(SessionUtil.getSessionId(request));
