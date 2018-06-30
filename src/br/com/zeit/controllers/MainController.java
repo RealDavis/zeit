@@ -39,6 +39,10 @@ public class MainController extends HttpServlet {
 			loginCtr = new LoginController();
 			loginCtr.index(request, response);
 			break;
+		case "logout" :
+			loginCtr = new LoginController();
+			loginCtr.logout(request, response);
+			break;
 		case "index" :
 			tarefaCtr = new TarefaController();
 			tarefaCtr.index(request, response);

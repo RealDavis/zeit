@@ -65,7 +65,11 @@ public class LoginController extends HttpServlet {
 				response.getWriter().println(e.getMessage());
 			}
 		}
-		
+	}
+	
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		SessionUtil.endSession(request);
+		response.sendRedirect(request.getContextPath() + "/login");
 	}
 
 }

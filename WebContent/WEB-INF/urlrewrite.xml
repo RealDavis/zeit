@@ -29,6 +29,10 @@
 		<from>/tarefa/cadastro</from>
 		<to>/main?action=cadastro</to>
 	</rule>
+	<rule>
+		<from>/logout</from>
+		<to>/main?action=logout</to>
+	</rule>
 	<!-- tarefas -->
 	<rule>
 		<from>^/$</from>

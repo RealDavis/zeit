@@ -21,7 +21,7 @@
 		</ul>
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href="#">Sair</a>
+				<a class="nav-link" href='<c:url value="/logout"/>'>Sair</a>
 			</li>
 		</ul>
 	</div>

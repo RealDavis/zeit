@@ -23,12 +23,12 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletResponse resp = ((HttpServletResponse)response);
 		HttpServletRequest req = ((HttpServletRequest)request);
-		if(!SessionUtil.isSessionActive(req)) {
+		String uri = req.getRequestURI();
+		if(!SessionUtil.isSessionActive(req) && uri.contains("tarefa")) {
 			String msgErro = "Ops, parece que você não está logado. \nFaça login para continuar!";
 			MsgUtil.setErrorMessage(req, msgErro);
 			resp.sendRedirect(req.getContextPath() + "/login");
 		} else if(SessionUtil.isSessionActive(req)){
-			String uri = req.getRequestURI();
 			if((req.getContextPath() + "/usuario/cadastro").equals(uri) || (req.getContextPath() + "/login").equals(uri)) {
 				String msgErro = "Você já está logado, não é possível continuar!";
 				MsgUtil.setErrorMessage(req, msgErro);

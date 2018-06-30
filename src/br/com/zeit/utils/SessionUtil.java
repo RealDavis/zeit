@@ -24,6 +24,8 @@ public class SessionUtil {
 	public static void endSession(HttpServletRequest request) {
 		HttpSession sessao = request.getSession();
 		if(isSessionActive(request)) {
+			sessao.removeAttribute("idUsuario");
+			sessao.removeAttribute("nome");
 			sessao.invalidate();
 		}
 	}
