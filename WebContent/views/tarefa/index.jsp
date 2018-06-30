@@ -8,6 +8,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
+			<c:if test="${sessionScope.errorMessage != null}">
+        		<c:import url="../commons/msgErro.jsp"/>
+        	</c:if>
 			<main>
 				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li class="nav-item">

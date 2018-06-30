@@ -53,6 +53,7 @@ public class LoginController extends HttpServlet {
 				UsuarioDTO usuarioValidado = dao.validarUsuario(usuario);
 				if(usuarioValidado != null) {
 					SessionUtil.startSession(request, usuarioValidado);
+					usuarioValidado = null;
 					response.sendRedirect(request.getContextPath() + "/index");;
 				} else {
 					MsgUtil.setErrorMessage(request, "Usuario não encontrado. Verifique os dados informados.");

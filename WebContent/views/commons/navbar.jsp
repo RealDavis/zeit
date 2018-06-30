@@ -16,7 +16,7 @@
 		</ul>
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<a class="nav-link" href='<c:url value="/tarefas/cadastro"/>'>Cadastrar tarefa</a>
+				<a class="nav-link" href='<c:url value="/tarefa/cadastro"/>'>Cadastrar tarefa</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav">

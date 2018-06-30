@@ -46,7 +46,7 @@
 				    <td>
 				    	<c:choose>
 				    		<c:when test="${listaTarefas.is_concluido == false}">
-				    			<a class="btn btn-success btn-sm" href="<c:url value="/tarefas/concluir/${listaTarefas.id_tarefa}"/>">
+				    			<a class="btn btn-success btn-sm" href="<c:url value="/tarefa/concluir/${listaTarefas.id_tarefa}"/>">
 			    					<i class="fas fa-check"></i>
 			    				</a>
 				    		</c:when>
@@ -56,7 +56,7 @@
 			    				</a>
 				    		</c:otherwise>
 				    	</c:choose>
-				    	<a class="btn btn-danger btn-sm" href="<c:url value="/tarefas/excluir/${listaTarefas.id_tarefa}"/>">
+				    	<a class="btn btn-danger btn-sm" href="<c:url value="/tarefa/excluir/${listaTarefas.id_tarefa}"/>">
 				    		<i class="fas fa-times"></i>
 				    	</a>
 				    </td>

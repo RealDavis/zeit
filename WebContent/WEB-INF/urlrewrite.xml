@@ -26,7 +26,7 @@
 		<to>/login</to>
 	</rule>
 	<rule>
-		<from>/tarefas/cadastro</from>
+		<from>/tarefa/cadastro</from>
 		<to>/main?action=cadastro</to>
 	</rule>
 	<!-- tarefas -->
@@ -40,23 +40,23 @@
 	</rule>
 	<rule>
 		<condition type="method">POST</condition>
-		<from>/tarefas/cadastrar</from>
+		<from>/tarefa/cadastrar</from>
 		<to>/tarefa</to>
 	</rule>
 	<rule>
-        <from>/tarefas/concluir/([0-9]+)$</from>
+        <from>/tarefa/concluir/([0-9]+)$</from>
         <to>/main?action=concluir&amp;id=$1</to>
     </rule>
     <rule>
-        <from>/tarefas/excluir/([0-9]+)$</from>
+        <from>/tarefa/excluir/([0-9]+)$</from>
         <to>/main?action=excluir&amp;id=$1</to>
     </rule>
 	<rule>
-        <from>/tarefas/edicao/([0-9]+)$</from>
+        <from>/tarefa/edicao/([0-9]+)$</from>
         <to>/main?action=edicao&amp;id=$1</to>
     </rule>
     <rule>
-        <from>/tarefas/editar/([0-9]+)$</from>
+        <from>/tarefa/editar/([0-9]+)$</from>
         <to>/main?action=editar&amp;id=$1</to>
     </rule>
     
