@@ -56,7 +56,8 @@
 			    				</a>
 				    		</c:otherwise>
 				    	</c:choose>
-				    	<a class="btn btn-danger btn-sm" href="<c:url value="/tarefa/excluir/${listaTarefas.id_tarefa}"/>">
+				    	<a class="btn btn-danger btn-sm excluir" id="${listaTarefas.id_tarefa}"
+							href="<c:url value="/tarefa/excluir/${listaTarefas.id_tarefa}"/>" >
 				    		<i class="fas fa-times"></i>
 				    	</a>
 				    </td>

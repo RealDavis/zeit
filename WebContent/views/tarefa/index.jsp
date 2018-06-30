@@ -43,6 +43,8 @@
 			<main>
 		</div>
 	</div>
-</div>	
+</div>
+
+<c:import url="modalExclusao.jsp"/>
  
 <c:import url="../commons/end-body.jsp"/>

@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.compiler.JspUtil;
+
 import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.daos.TarefaDAO;
 import br.com.zeit.models.dtos.TarefaDTO;
 import br.com.zeit.models.validators.TarefaValidator;
 import br.com.zeit.utils.FormUtil;
+import br.com.zeit.utils.JsUtil;
 import br.com.zeit.utils.MsgUtil;
 import br.com.zeit.utils.SessionUtil;
 
@@ -28,6 +31,9 @@ public class TarefaController extends HttpServlet {
 			MsgUtil.setErrorMessage(request, msgErro);
 			response.sendRedirect(request.getContextPath() + "/login");
 		}else {
+			JsUtil ju = new JsUtil();
+			ju.addJs("exclusao");
+			ju.createJs(request);
 			request.setAttribute("titulo", "Inicio");
 			request.getRequestDispatcher("views/tarefa/index.jsp").forward(request, response);
 		}
