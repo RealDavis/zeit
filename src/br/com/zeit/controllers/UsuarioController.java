@@ -55,7 +55,8 @@ public class UsuarioController extends HttpServlet {
 					response.sendRedirect(request.getContextPath() + "/usuario/cadastro");
 				} else {
 					dao.insertUsuario(usuario);
-					response.getWriter().println("Usuario cadastrado");
+					LoginController lc = new LoginController();
+					lc.login(request, response, usuario);
 				}
 			} catch (PersistenciaException e) {
 				response.getWriter().println("Erro no banco de dados");

@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 		request.getRequestDispatcher("views/login/login.jsp").forward(request, response);
 	}
 	
-	private void login(HttpServletRequest request, HttpServletResponse response, UsuarioDTO usuario) throws IOException {
+	protected void login(HttpServletRequest request, HttpServletResponse response, UsuarioDTO usuario) throws IOException {
 		//validação de usuário
 		UsuarioValidator validator = new UsuarioValidator();
 		String msgErro = validator.validarLogin(usuario);
