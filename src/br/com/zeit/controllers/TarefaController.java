@@ -33,6 +33,7 @@ public class TarefaController extends HttpServlet {
 		}else {
 			JsUtil ju = new JsUtil();
 			ju.addJs("exclusao");
+			ju.addJs("showTab");
 			ju.createJs(request);
 			request.setAttribute("titulo", "Inicio");
 			request.getRequestDispatcher("views/tarefa/index.jsp").forward(request, response);

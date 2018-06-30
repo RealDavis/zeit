@@ -11,16 +11,22 @@
 			<c:if test="${sessionScope.errorMessage != null}">
         		<c:import url="../commons/msgErro.jsp"/>
         	</c:if>
-			<main>
+			<main id="main">
 				<ul class="nav nav-tabs nav-justified" role="tablist">
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tarefasPassadas">Tarefas passadas / concluídas</a>
+						<a class="nav-link" id="passadasTab" data-toggle="tab" href="#tarefasPassadas">
+							Tarefas passadas / concluídas
+						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tarefasHoje">Tarefas de hoje / em aberto</a>
+						<a class="nav-link" id="hojeTab" data-toggle="tab" href="#tarefasHoje">
+							Tarefas de hoje / em aberto
+						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#tarefasFuturas">Tarefas futuras</a>
+						<a class="nav-link" id="futurasTab" data-toggle="tab" href="#tarefasFuturas">
+							Tarefas futuras
+						</a>
 					</li>
 				</ul>
 			
