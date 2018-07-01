@@ -29,6 +29,8 @@ public class TarefaValidator {
 			msgErro.append("Preencha o campo tarefa.<br>\n");
 		} else if(tarefa.length() < 5) {
 			msgErro.append("Tarefa inválida. A tarefa deve ter no minimo 5 caracteres.<br>\n");
+		} else if(tarefa.length() > 100) {
+			msgErro.append("Tarefa inválida. A tarefa deve ter no máximo 100 caracteres.<br>\n");
 		}
 	}
 	

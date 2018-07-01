@@ -15,22 +15,27 @@
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
 	        	
-				<form method="POST" action="<c:url value="/tarefa/cadastrar"/>">
+				<form method="POST" action="<c:url value="/tarefa/cadastrar"/>" onsubmit="return validarTarefa()">
 					<div class="form-group">
 						<label for="tarefa">Tarefa</label>
 						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}">
+						<div class="invalid-feedback" id="erroTarefa"></div>
 					</div>
 					<div class="form-group">
 						<label for="data">Data</label>
 						<input type="date" class="form-control" id="data" name="data" value="${sessionScope.entidade.getData()}">
+						<div class="invalid-feedback" id=""></div>
+						<div class="invalid-feedback" id="erroData"></div>
 					</div>
 					<div class="form-group">
 						<label for="hora">Horário</label>
 						<input type="time" class="form-control" id="hora" name="hora" value="${sessionScope.entidade.getHora()}">
+						<div class="invalid-feedback" id="erroHora"></div>
 					</div>
 					<div class="form-group">
     					<label for="observacoes">Observações</label>
     					<textarea class="form-control" id="observacoes" name="observacoes" rows="3">${sessionScope.entidade.getObservacoes()}</textarea>
+  						<div class="invalid-feedback" id=""></div>
   					</div>
 				
 					<div class="row">

@@ -53,6 +53,9 @@ public class TarefaController extends HttpServlet {
 	}
 	
 	protected void cadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		JsUtil ju = new JsUtil();
+		ju.addJs("validateTarefa");
+		ju.createJs(request);
 		request.setAttribute("titulo", "Cadastrar tarefa");
 		request.getRequestDispatcher("views/tarefa/cadastro.jsp").forward(request, response);
 	}
