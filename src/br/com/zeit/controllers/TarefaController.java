@@ -43,6 +43,7 @@ public class TarefaController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TarefaDTO tarefa = new TarefaDTO();
+		request.setCharacterEncoding("UTF-8");
 		tarefa.setTarefa(request.getParameter("tarefa").trim());
 		tarefa.setData(!request.getParameter("data").isEmpty() ? LocalDate.parse(request.getParameter("data")) : null);
 		tarefa.setHora(!request.getParameter("hora").isEmpty() ? LocalTime.parse(request.getParameter("hora")) : null);
@@ -117,7 +118,9 @@ public class TarefaController extends HttpServlet {
 				FormUtil.saveObjData(request, tarefa);
 				request.setAttribute("titulo", "Editar tarefa");
 				request.setAttribute("idTarefa", idTarefa);
-				response.getWriter().println(tarefa);
+				JsUtil ju = new JsUtil();
+				ju.addJs("validateTarefa");
+				ju.createJs(request);
 				request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
 			} else {
 				response.getWriter().println(tarefa);
@@ -129,6 +132,7 @@ public class TarefaController extends HttpServlet {
 
 	public void editar(HttpServletRequest request, HttpServletResponse response, int idTarefa) throws IOException {
 		TarefaDTO tarefa = new TarefaDTO();
+		request.setCharacterEncoding("UTF-8");
 		tarefa.setIdTarefa(idTarefa);
 		tarefa.setTarefa(request.getParameter("tarefa").trim());
 		tarefa.setData(!request.getParameter("data").isEmpty() ? LocalDate.parse(request.getParameter("data")) : null);

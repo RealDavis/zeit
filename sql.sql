@@ -1,4 +1,4 @@
-CREATE SCHEMA zeit CHARSET = UTF8 COLLATE = utf8_general_ci;
+CREATE SCHEMA zeit CREATE SCHEMA zeit CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE zeit;
 

@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.compiler.JspUtil;
+
 import br.com.zeit.exceptions.EncriptionException;
 import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.daos.UsuarioDAO;
 import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
 import br.com.zeit.utils.FormUtil;
+import br.com.zeit.utils.JsUtil;
 import br.com.zeit.utils.MsgUtil;
 
 @WebServlet("/usuario")
@@ -32,6 +35,9 @@ public class UsuarioController extends HttpServlet {
 
 	protected void cadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		JsUtil ju = new JsUtil();
+		ju.addJs("validateUsuario");
+		ju.createJs(request);
 		request.setAttribute("titulo", "Cadastro de usuário");
 		request.getRequestDispatcher("views/usuario/cadastro.jsp").forward(request, response);
 	}

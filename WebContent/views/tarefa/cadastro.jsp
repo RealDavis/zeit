@@ -24,7 +24,6 @@
 					<div class="form-group">
 						<label for="data">Data</label>
 						<input type="date" class="form-control" id="data" name="data" value="${sessionScope.entidade.getData()}">
-						<div class="invalid-feedback" id=""></div>
 						<div class="invalid-feedback" id="erroData"></div>
 					</div>
 					<div class="form-group">
@@ -35,7 +34,7 @@
 					<div class="form-group">
     					<label for="observacoes">Observações</label>
     					<textarea class="form-control" id="observacoes" name="observacoes" rows="3">${sessionScope.entidade.getObservacoes()}</textarea>
-  						<div class="invalid-feedback" id=""></div>
+  						<div class="invalid-feedback" id="erroObservacoes"></div>
   					</div>
 				
 					<div class="row">
