@@ -18,7 +18,8 @@
 				<form method="POST" action="<c:url value="/tarefa/cadastrar"/>" onsubmit="return validarTarefa()">
 					<div class="form-group">
 						<label for="tarefa">Tarefa</label>
-						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}">
+						<input type="text" class="form-control" id="tarefa" name="tarefa" value="${sessionScope.entidade.getTarefa()}" 
+						required minlength="5" maxlength="100">
 						<div class="invalid-feedback" id="erroTarefa"></div>
 					</div>
 					<div class="form-group">
@@ -33,7 +34,7 @@
 					</div>
 					<div class="form-group">
     					<label for="observacoes">Observações</label>
-    					<textarea class="form-control" id="observacoes" name="observacoes" rows="3">${sessionScope.entidade.getObservacoes()}</textarea>
+    					<textarea class="form-control" id="observacoes" name="observacoes" rows="3" maxlength="250">${sessionScope.entidade.getObservacoes()}</textarea>
   						<div class="invalid-feedback" id="erroObservacoes"></div>
   					</div>
 				

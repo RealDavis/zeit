@@ -16,6 +16,7 @@ import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
 import br.com.zeit.security.Encript;
 import br.com.zeit.utils.FormUtil;
+import br.com.zeit.utils.JsUtil;
 import br.com.zeit.utils.MsgUtil;
 import br.com.zeit.utils.SessionUtil;
 
@@ -32,6 +33,9 @@ public class LoginController extends HttpServlet {
 	}
 	
 	public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		JsUtil ju =  new JsUtil();
+		ju.addJs("validateLogin");
+		ju.createJs(request);
 		request.setAttribute("titulo", "Login");
 		request.getRequestDispatcher("views/login/login.jsp").forward(request, response);
 	}

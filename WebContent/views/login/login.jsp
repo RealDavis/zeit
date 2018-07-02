@@ -13,7 +13,7 @@
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
 				
-				<form method="POST" action="<c:url value="/logar"/>">
+				<form method="POST" action="<c:url value="/logar"/>" onsubmit="return validaLogin()">
 					<div class="form-group">
 						<label for="email">Email</label>
 						<div class="input-group">
@@ -22,7 +22,9 @@
 									<i class="fas fa-at"></i>
 								</span>
 							</div>
-						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}">
+						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" 
+						required>
+						<div class="invalid-feedback" id="erroEmail"></div>
 						</div>
 					</div>
 				<!--senha-->
@@ -34,7 +36,8 @@
 									<i class="far fa-eye-slash"></i>
 								</span>
 							</div>
-						<input type="password" class="form-control" id="senha" name="senha">
+						<input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="200">
+						<div class="invalid-feedback" id="erroSenha"></div>
 						</div>
 					</div>
 				</div>
