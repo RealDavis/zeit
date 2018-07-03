@@ -26,6 +26,7 @@ public class UsuarioController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		UsuarioDTO usuario = new UsuarioDTO();
+		request.setCharacterEncoding("UTF-8");
 		usuario.setNome(request.getParameter("nome").trim());
 		usuario.setEmail(request.getParameter("email").trim());
 		usuario.setSenha(request.getParameter("senha").trim());
@@ -36,7 +37,7 @@ public class UsuarioController extends HttpServlet {
 	protected void cadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		JsUtil ju = new JsUtil();
-		ju.addJs("validateUsuario");
+		ju.addJs("validaUsuario");
 		ju.createJs(request);
 		request.setAttribute("titulo", "Cadastro de usuário");
 		request.getRequestDispatcher("views/usuario/cadastro.jsp").forward(request, response);

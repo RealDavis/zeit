@@ -15,7 +15,7 @@
 		        		<c:import url="../commons/msgErro.jsp"/>
 		        	</c:if>
 		        	
-	                <form method="POST" action="<c:url value="/usuario/cadastrar"/>">
+	                <form method="POST" action="<c:url value="/usuario/cadastrar"/>" onsubmit="return validarUsuario()">
 						<!--nome de usuário-->
 	                    <div class="form-group">
 							<label for="nome">Nome de usuário</label>
@@ -25,7 +25,9 @@
 										<i class="fas fa-user-circle"></i>
 									</span>
 								</div>
-								<input type="text" class="form-control" id="nome" name="nome" value="${sessionScope.entidade.getNome()}">
+								<input type="text" class="form-control" id="nome" name="nome" value="${sessionScope.entidade.getNome()}" 
+								required minlength="3" maxlength="128">
+								<div class="invalid-feedback" id="erroNome"></div>
 							</div>
 						</div>
 						<!--email-->
@@ -37,7 +39,8 @@
 										<i class="fas fa-at"></i>
 									</span>
 								</div>
-								<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}">
+								<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" required>
+								<div class="invalid-feedback" id="erroEmail"></div>
 							</div>
 						</div>
 						<!--senha-->
@@ -49,7 +52,8 @@
 										<i class="far fa-eye-slash"></i>
 									</span>
 								</div>
-								<input type="password" class="form-control" id="senha" name="senha">
+								<input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="200">
+								<div class="invalid-feedback" id="erroSenha"></div>
 							</div>
 						</div>
 						<!--repetição de senha-->
@@ -61,7 +65,8 @@
 											<i class="far fa-eye-slash"></i>
 										</span>
 									</div>
-									<input type="password" class="form-control" id="senhaConfirmar" name="senhaConfirmar">
+									<input type="password" class="form-control" id="senhaConfirmar" name="senhaConfirmar" required minlength="8" maxlength="200">
+									<div class="invalid-feedback" id="erroSenhaConfirmar"></div>
 								</div>
 	                    </div>
 	
