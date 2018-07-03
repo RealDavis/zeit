@@ -21,7 +21,7 @@
 									<i class="fas fa-at"></i>
 								</span>
 							</div>
-						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" >
+						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" required>
 						<label id="erroEmail" for="email" generated="true" class="error invalid-feedback"></label>
 						</div>
 					</div>
@@ -34,7 +34,7 @@
 									<i class="far fa-eye-slash"></i>
 								</span>
 							</div>
-						<input type="password" class="form-control" id="senha" name="senha">
+						<input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="200">
 						<label for="senha" generated="true" class="error invalid-feedback"></label> 
 						</div>
 					</div>

@@ -15,7 +15,7 @@
 		        		<c:import url="../commons/msgErro.jsp"/>
 		        	</c:if>
 		        	
-	                <form method="POST" action="<c:url value="/usuario/cadastrar"/>" onsubmit="return validarUsuario()">
+	                <form method="POST" action="<c:url value="/usuario/cadastrar"/>" id="frmCadastroUsuario">
 						<!--nome de usuário-->
 	                    <div class="form-group">
 							<label for="nome">Nome de usuário</label>
@@ -27,7 +27,7 @@
 								</div>
 								<input type="text" class="form-control" id="nome" name="nome" value="${sessionScope.entidade.getNome()}" 
 								required minlength="3" maxlength="128">
-								<div class="invalid-feedback" id="erroNome"></div>
+								<label for="nome" generated="true" class="error invalid-feedback"></label> 
 							</div>
 						</div>
 						<!--email-->
@@ -40,7 +40,7 @@
 									</span>
 								</div>
 								<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" required>
-								<div class="invalid-feedback" id="erroEmail"></div>
+								<label for="email" generated="true" class="error invalid-feedback"></label> 
 							</div>
 						</div>
 						<!--senha-->
@@ -53,7 +53,7 @@
 									</span>
 								</div>
 								<input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="200">
-								<div class="invalid-feedback" id="erroSenha"></div>
+								<label for="senha" generated="true" class="error invalid-feedback"></label> 
 							</div>
 						</div>
 						<!--repetição de senha-->
@@ -66,7 +66,7 @@
 										</span>
 									</div>
 									<input type="password" class="form-control" id="senhaConfirmar" name="senhaConfirmar" required minlength="8" maxlength="200">
-									<div class="invalid-feedback" id="erroSenhaConfirmar"></div>
+									<label for="senhaConfirmar" generated="true" class="error invalid-feedback"></label> 
 								</div>
 	                    </div>
 	

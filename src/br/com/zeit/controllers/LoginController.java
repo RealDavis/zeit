@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
 	public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JsUtil ju =  new JsUtil();
 		ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
-		ju.addJs("validateLogin");
+		ju.addJs("validation/validateLogin");
 		ju.createJs(request);
 		CssUtil cut = new CssUtil();
 		cut.addCSS("validation");
