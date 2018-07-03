@@ -15,6 +15,7 @@ import br.com.zeit.models.daos.UsuarioDAO;
 import br.com.zeit.models.dtos.UsuarioDTO;
 import br.com.zeit.models.validators.UsuarioValidator;
 import br.com.zeit.security.Encript;
+import br.com.zeit.utils.CssUtil;
 import br.com.zeit.utils.FormUtil;
 import br.com.zeit.utils.JsUtil;
 import br.com.zeit.utils.MsgUtil;
@@ -34,8 +35,12 @@ public class LoginController extends HttpServlet {
 	
 	public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JsUtil ju =  new JsUtil();
+		ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
 		ju.addJs("validateLogin");
 		ju.createJs(request);
+		CssUtil cut = new CssUtil();
+		cut.addCSS("validation");
+		cut.createCSS(request);
 		request.setAttribute("titulo", "Login");
 		request.getRequestDispatcher("views/login/login.jsp").forward(request, response);
 	}

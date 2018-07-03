@@ -8,12 +8,11 @@
 	<div class="row">
 		<div class="col-12">
 			<main>
-				
 				<c:if test="${sessionScope.errorMessage != null}">
 	        		<c:import url="../commons/msgErro.jsp"/>
 	        	</c:if>
 				
-				<form method="POST" action="<c:url value="/logar"/>" onsubmit="return validaLogin()">
+				<form method="POST" action="<c:url value="/logar"/>" id="frmLogin">
 					<div class="form-group">
 						<label for="email">Email</label>
 						<div class="input-group">
@@ -22,9 +21,8 @@
 									<i class="fas fa-at"></i>
 								</span>
 							</div>
-						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" 
-						required>
-						<div class="invalid-feedback" id="erroEmail"></div>
+						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" >
+						<label id="erroEmail" for="email" generated="true" class="error invalid-feedback"></label>
 						</div>
 					</div>
 				<!--senha-->
@@ -36,8 +34,8 @@
 									<i class="far fa-eye-slash"></i>
 								</span>
 							</div>
-						<input type="password" class="form-control" id="senha" name="senha" required minlength="8" maxlength="200">
-						<div class="invalid-feedback" id="erroSenha"></div>
+						<input type="password" class="form-control" id="senha" name="senha">
+						<label for="senha" generated="true" class="error invalid-feedback"></label> 
 						</div>
 					</div>
 				</div>
@@ -53,5 +51,6 @@
 		</div>
 	</div>
 </div>
+
 
 <c:import url="../commons/end-body.jsp" />

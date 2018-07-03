@@ -11,7 +11,6 @@
 		<script type="text/javascript" src="<c:url value="/assets/bootstrap/dist/js/bootstrap.min.js"/>"></script>
 		<c:if test="${jsPersonalizado != null}">
 			${jsPersonalizado}
-			<c:remove var = "jsPersonalizado"/>
 		</c:if>
 		
 	</body>

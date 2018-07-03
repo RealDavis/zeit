@@ -10,7 +10,9 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<link type="text/css" rel="stylesheet" href="<c:url value="/assets/bootstrap/dist/css/bootstrap.min.css"/>">
 		<link rel="icon" href="<c:url value="/assets/img/favicon.png"/>">
-		
+		<c:if test="${CSSPersonalizado != null}">
+			${CSSPersonalizado}
+		</c:if>
 		<title><c:out value="${titulo}"/></title>
 	</head>
 	
