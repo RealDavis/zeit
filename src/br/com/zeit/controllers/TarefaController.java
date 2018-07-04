@@ -16,6 +16,7 @@ import br.com.zeit.exceptions.PersistenciaException;
 import br.com.zeit.models.daos.TarefaDAO;
 import br.com.zeit.models.dtos.TarefaDTO;
 import br.com.zeit.models.validators.TarefaValidator;
+import br.com.zeit.utils.CssUtil;
 import br.com.zeit.utils.FormUtil;
 import br.com.zeit.utils.JsUtil;
 import br.com.zeit.utils.MsgUtil;
@@ -55,8 +56,12 @@ public class TarefaController extends HttpServlet {
 	
 	protected void cadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JsUtil ju = new JsUtil();
-		ju.addJs("validateTarefa");
+		ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
+		ju.addJs("validation/validateTarefa");
 		ju.createJs(request);
+		CssUtil cut = new CssUtil();
+		cut.addCSS("validation");
+		cut.createCSS(request);
 		request.setAttribute("titulo", "Cadastrar tarefa");
 		request.getRequestDispatcher("views/tarefa/cadastro.jsp").forward(request, response);
 	}
@@ -119,8 +124,12 @@ public class TarefaController extends HttpServlet {
 				request.setAttribute("titulo", "Editar tarefa");
 				request.setAttribute("idTarefa", idTarefa);
 				JsUtil ju = new JsUtil();
-				ju.addJs("validateTarefa");
+				ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
+				ju.addJs("validation/validateTarefa");
 				ju.createJs(request);
+				CssUtil cut = new CssUtil();
+				cut.addCSS("validation");
+				cut.createCSS(request);
 				request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
 			} else {
 				response.getWriter().println(tarefa);

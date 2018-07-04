@@ -22,7 +22,7 @@
 								</span>
 							</div>
 						<input type="email" class="form-control" id="email" name="email" value="${sessionScope.entidade.getEmail()}" required>
-						<label id="erroEmail" for="email" generated="true" class="error invalid-feedback"></label>
+						<label for="email" generated="true" class="error invalid-feedback"></label>
 						</div>
 					</div>
 				<!--senha-->
