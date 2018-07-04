@@ -4,9 +4,9 @@
 
 <c:import url="../commons/head.jsp"/>
 
-<div class="container bg-danger">
+<div class="container">
 	<div class="row ">
-		<div class="col-xl-4 col-lg-5 col-md-6 d-none d-md-block mr-auto"><!-- banner -->
+		<div class="col-xl-5 col-lg-5 col-md-6 d-none d-md-block mr-auto"><!-- banner -->
 			<section class="card">
 				<article class="card-body">
 					<h1>Bem vindo ao Zeit</h1>
@@ -67,7 +67,10 @@
 						</div>
 					</form>	
 					<div class="row">
-						Ainda não tem uma conta? <a href='<c:url value="/usuario/cadastro"/>'>Criar conta</a>
+						Ainda não tem uma conta? 
+						<a href='<c:url value="/usuario/cadastro"/>'>
+							<span class="strong">Criar conta</span>
+						</a>
 					</div>
 				</div><!-- card -->
 			</main>
@@ -75,5 +78,7 @@
 		
 	</div><!-- row -->
 </div><!-- container -->	
+
+
 		
 <c:import url="../commons/end-body.jsp" />
