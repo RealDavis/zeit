@@ -91,9 +91,6 @@
         </div>
     </div>
 
-	<c:if test="${sessionScope.entidade != null}">
-		<c:remove var="entidade"/>
-	</c:if>
+	<c:remove var="entidade"/>
 
     <c:import url="../commons/end-body.jsp"/>
-    

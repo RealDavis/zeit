@@ -61,6 +61,7 @@ public class TarefaController extends HttpServlet {
 		ju.createJs(request);
 		CssUtil cut = new CssUtil();
 		cut.addCSS("validation");
+		cut.addCSS("styleCadastroEdicao");
 		cut.createCSS(request);
 		request.setAttribute("titulo", "Cadastrar tarefa");
 		request.getRequestDispatcher("views/tarefa/cadastro.jsp").forward(request, response);
@@ -129,6 +130,7 @@ public class TarefaController extends HttpServlet {
 				ju.createJs(request);
 				CssUtil cut = new CssUtil();
 				cut.addCSS("validation");
+				cut.addCSS("styleCadastroEdicao");
 				cut.createCSS(request);
 				request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
 			} else {
