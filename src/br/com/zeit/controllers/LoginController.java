@@ -40,6 +40,7 @@ public class LoginController extends HttpServlet {
 		ju.createJs(request);
 		CssUtil cut = new CssUtil();
 		cut.addCSS("validation");
+		cut.addCSS("styleLogin");
 		cut.createCSS(request);
 		request.setAttribute("titulo", "Login");
 		request.getRequestDispatcher("views/login/login.jsp").forward(request, response);
