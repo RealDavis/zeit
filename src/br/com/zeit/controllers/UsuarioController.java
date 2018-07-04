@@ -43,6 +43,7 @@ public class UsuarioController extends HttpServlet {
 		ju.createJs(request);
 		CssUtil cut = new CssUtil();
 		cut.addCSS("validation");
+		cut.addCSS("styleCadUsuario");
 		cut.createCSS(request);
 		request.setAttribute("titulo", "Cadastro de usuário");
 		request.getRequestDispatcher("views/usuario/cadastro.jsp").forward(request, response);
