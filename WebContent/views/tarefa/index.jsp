@@ -30,9 +30,9 @@
 					</li>
 				</ul>
 			
-			<c:if test="${sessionScope.successMessage != null}">
-				<c:import url="../commons/msgSuccess.jsp"/>
-			</c:if>
+				<c:if test="${sessionScope.successMessage != null}">
+					<c:import url="../commons/msgSuccess.jsp"/>
+				</c:if>
 			
 			  <!-- Tab panes -->
 				<div class="tab-content">
@@ -42,7 +42,7 @@
 					<div id="tarefasHoje" class="container tab-pane fade">
 						<c:import url="tableTarefasHoje.jsp"/>
 					</div>
-					<div id="tarefasFuturas" class="container tab-pane fade"><br>
+					<div id="tarefasFuturas" class="container tab-pane fade">
 						<c:import url="tableTarefasFuturas.jsp"/>
 					</div>
 				</div>

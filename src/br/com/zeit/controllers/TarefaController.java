@@ -35,7 +35,12 @@ public class TarefaController extends HttpServlet {
 			JsUtil ju = new JsUtil();
 			ju.addJs("exclusao");
 			ju.addJs("showTab");
+			ju.addJs("popover");
+			ju.addJs("tooltip");
 			ju.createJs(request);
+			CssUtil cut = new CssUtil();
+			cut.addCSS("styleIndex");
+			cut.createCSS(request);
 			request.setAttribute("titulo", "Inicio");
 			request.getRequestDispatcher("views/tarefa/index.jsp").forward(request, response);
 		}

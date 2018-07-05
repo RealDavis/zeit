@@ -16,64 +16,71 @@
 	
 	<c:choose>
 		<c:when test="${fn:length(resultadoTarefas.rows) > 0}">
-			<table class="table">
-				<thead class="thead-dark">
+			<div class="table-responsive">
+				<table class="table table-hover table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Tarefa</th>
+							<th scope="col">Data</th>
+							<th scope="col">Hora</th>
+							<th scope="col">Status</th>
+							<th scope="col">Observaões</th>
+							<th scope="col">Ações<th>
+						</tr>
+					</thead>
+					<tbody>
+				<c:forEach var="listaTarefas" items="${resultadoTarefas.rows}">
 					<tr>
-						<th scope="col">Tarefa</th>
-						<th scope="col">Data</th>
-						<th scope="col">Hora</th>
-						<th scope="col">Status</th>
-						<th scope="col">Ações<th>
-					</tr>
-				</thead>
-				<tbody>
-			<c:forEach var="listaTarefas" items="${resultadoTarefas.rows}">
-				<tr>
-				    <td><c:out value="${listaTarefas.tarefa}"/></td>
-				    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${listaTarefas.data_tarefa}"/></td>
-				    <td><fmt:formatDate pattern="HH:mm" value="${listaTarefas.hora}"/></td>
-				    <!--  <td><c:out value="${listaTarefas.observacoes}"/></td>-->
-				    <td>
-				    	<c:choose>
-				    		<c:when test="${listaTarefas.is_concluido == true}">
-				    			<c:out value="Concluido"/>
-				    		</c:when>
-				    		<c:otherwise>
-				    			<c:out value="Em aberto"/>
-				    		</c:otherwise>
-				    	</c:choose>
-				    </td>
-				    <td>
-				    	<c:choose>
-				    		<c:when test="${listaTarefas.is_concluido == false}">
-				    			<a class="btn btn-success btn-sm" href="<c:url value="/tarefa/concluir/${listaTarefas.id_tarefa}"/>">
-			    					<i class="fas fa-check"></i>
-			    				</a>
-				    		</c:when>
-				    		<c:otherwise>
-				    			<a class="btn btn-success btn-sm disabled" href="">
-			    					<i class="fas fa-check"></i>
-			    				</a>
-				    		</c:otherwise>
-				    	</c:choose>
-				    	<a class="btn btn-danger btn-sm excluir" id="${listaTarefas.id_tarefa}"
-							href="<c:url value="/tarefa/excluir/${listaTarefas.id_tarefa}"/>" >
-				    		<i class="fas fa-times"></i>
-				    	</a>
-				    </td>
-				    <c:if test="${!listaTarefas.observacoes.isEmpty()}">
-					    <tr>
-					    	<td colspan="5">
-					    		<span>Observações: </span>
-					    		<c:out value="${listaTarefas.observacoes}"/>
-					    	</td>
-					    <tr>
-				    </c:if>
-				</c:forEach>
-			    </tr>
-			    
-				</tbody>
-			</table>
+					    <td><c:out value="${listaTarefas.tarefa}"/></td>
+					    <td><fmt:formatDate pattern="dd/MM/yyyy" value="${listaTarefas.data_tarefa}"/></td>
+					    <td><fmt:formatDate pattern="HH:mm" value="${listaTarefas.hora}"/></td>
+					    <td>
+					    	<c:choose>
+					    		<c:when test="${listaTarefas.is_concluido == true}">
+					    			<c:out value="Concluido"/>
+					    		</c:when>
+					    		<c:otherwise>
+					    			<c:out value="Em aberto"/>
+					    		</c:otherwise>
+					    	</c:choose>
+					    </td>
+					    <td>
+					    	<c:choose>
+					    		<c:when test="${!listaTarefas.observacoes.isEmpty()}">
+					    			<span class="pop" data-container="body" data-toggle="popover" data-placement="bottom" data-content="${listaTarefas.observacoes}">
+										<i class="far fa-hand-pointer"></i>
+									</span>
+					    		</c:when>
+					    		<c:otherwise>
+					    			---
+					    		</c:otherwise>
+					    	</c:choose>
+					    </td>
+					    <td>
+					    	<c:choose>
+					    		<c:when test="${listaTarefas.is_concluido == false}">
+					    			<a class="btn btn-success btn-sm" href="<c:url value="/tarefa/concluir/${listaTarefas.id_tarefa}"/>" 
+					    			data-toggle="tooltip" data-placement="left" title="Concluir">
+				    					<i class="fas fa-check"></i>
+				    				</a>
+					    		</c:when>
+					    		<c:otherwise>
+					    			<a class="btn btn-success btn-sm disabled" href="">
+				    					<i class="fas fa-check"></i>
+				    				</a>
+					    		</c:otherwise>
+					    	</c:choose>
+					    	<a class="btn btn-danger btn-sm excluir" id="${listaTarefas.id_tarefa}"
+								href="<c:url value="/tarefa/excluir/${listaTarefas.id_tarefa}"/>" data-toggle="tooltip" data-placement="right" title="Excluir">
+					    		<i class="fas fa-times"></i>
+					    	</a>
+					    </td>
+					</c:forEach>
+				    </tr>
+				    
+					</tbody>
+				</table>
+			</div>
 		</c:when>
 		<c:otherwise>
 			<c:import url="noData.jsp"/>
