@@ -86,6 +86,9 @@ public class TarefaController extends HttpServlet {
 					String msgSucess = "Tarefa salva com sucesso!";
 					MsgUtil.setSuccessMessage(request, msgSucess);
 					response.sendRedirect(request.getContextPath() + "/");
+				} else {
+					MsgUtil.setErrorMessage(request, "Erro ao cadastrar tarefa");
+					response.sendRedirect(request.getContextPath() + "/tarefa/cadastro");
 				}
 			} catch(PersistenciaException e) {
 				response.getWriter().println(e.getMessage());
@@ -139,7 +142,8 @@ public class TarefaController extends HttpServlet {
 				cut.createCSS(request);
 				request.getRequestDispatcher("views/tarefa/editar.jsp").forward(request, response);
 			} else {
-				response.getWriter().println(tarefa);
+				MsgUtil.setErrorMessage(request, "Erro ao carregar tarefa");
+				response.sendRedirect(request.getContextPath() + "/");
 			}
 		} catch (PersistenciaException e) {
 			response.getWriter().println(e.getMessage());

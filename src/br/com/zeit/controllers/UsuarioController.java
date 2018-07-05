@@ -71,11 +71,9 @@ public class UsuarioController extends HttpServlet {
 					LoginController lc = new LoginController();
 					lc.login(request, response, usuario);
 				}
-			} catch (PersistenciaException e) {
-				response.getWriter().println("Erro no banco de dados");
-			} catch (EncriptionException e) {
-				response.getWriter().println("Erro interno da aplicação");
-			}
+			} catch (PersistenciaException | EncriptionException e) {
+				throw new RuntimeException();
+			} 
 		}
 	}
 

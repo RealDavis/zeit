@@ -69,10 +69,9 @@ public class LoginController extends HttpServlet {
 					MsgUtil.setErrorMessage(request, "Usuario não encontrado. Verifique os dados informados.");
 					response.sendRedirect(request.getContextPath() + "/login");
 				}
-			} catch (PersistenciaException e) {
-				response.getWriter().println(e.getMessage() + " " + e.getCause());
-			} catch (EncriptionException e) {
-				response.getWriter().println(e.getMessage());
+			} catch (PersistenciaException | EncriptionException e) {
+				MsgUtil.setErrorMessage(request, "Ocorreu um erro desconhecido. Tente novamente mais tarde");
+				response.sendRedirect(request.getContextPath() + "/login");
 			}
 		}
 	}
