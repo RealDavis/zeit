@@ -90,10 +90,13 @@ $(document).ready(function(){
 			if(dataInput > hoje) {
 				return true;
 			} else if(equalsDates(dataInput, hoje)){
-				if(parseInt(aux[0]) >= hoje.getHours()) {
+				if(parseInt(aux[0]) === hoje.getHours()) {
 					if(parseInt(aux[1]) < hoje.getMinutes()) {
 						return false;
+					} else {
+						return true;
 					}
+				} else if(parseInt(aux[0]) > hoje.getHours()){
 					return true;
 				} else {
 					return false;

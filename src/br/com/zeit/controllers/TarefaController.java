@@ -61,7 +61,7 @@ public class TarefaController extends HttpServlet {
 	
 	protected void cadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JsUtil ju = new JsUtil();
-		ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
+		ju.addJs("jquery.validate.min");
 		ju.addJs("validation/validateTarefa");
 		ju.createJs(request);
 		CssUtil cut = new CssUtil();
@@ -130,7 +130,7 @@ public class TarefaController extends HttpServlet {
 				request.setAttribute("titulo", "Editar tarefa");
 				request.setAttribute("idTarefa", idTarefa);
 				JsUtil ju = new JsUtil();
-				ju.addJs("jquery-validation-1.17.0/dist/jquery.validate.min");
+				ju.addJs("jquery.validate.min");
 				ju.addJs("validation/validateTarefa");
 				ju.createJs(request);
 				CssUtil cut = new CssUtil();
